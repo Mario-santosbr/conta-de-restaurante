@@ -1,0 +1,62 @@
+#Calculadora de conta do restaurante
+
+# Preços dos itens do cadarpio
+hamburguer = 25.00
+pizza = 40.00
+refrigerante = 8.00
+sobremesa = 12.00
+
+#Entrada das quantidades
+qdt_hamburguer = int(input("quantos hambugueres:"))
+qdt_pizza = int(input("quantas pizzas:"))
+qdt_refrigerante = int(input("quantos refrigerantes:"))
+qdt_sobremesa = int(input("quantas sobremesas:"))
+
+#Calculo dos subtotais
+subtotal_hamburguer = hamburguer + qdt_hamburguer
+subtotal_pizza= pizza + qdt_pizza
+subtotal_refrigerante = refrigerante + qdt_refrigerante
+subtotal_sobremesa = sobremesa + qdt_sobremesa
+
+#Calculo subtotal total
+subtotal = (subtotal_hamburguer + subtotal_pizza + subtotal_sobremesa + subtotal_refrigerante)
+
+#taxa de serviço de 10%
+taxa_servico = subtotal *0.10
+total = subtotal + taxa_servico
+
+#gorgeta opcional
+gorgeta =input("Deseja deixar gorgeta extra?(sim/nao").lower()
+if gorgeta == "sim":
+    valor_gorgeta = total * 0.05
+    total += valor_gorgeta
+else: valor_gorgeta = 0
+
+#Perguntar a quantidade de pessoas
+pessoas = int(input("em quantas pessoas a conta sera dividida?"))
+
+#desconto de 5% para mais de 4 pessoas
+if pessoas > 4:
+    desconto = total * 0.05
+    total -= desconto
+else: desconto = 0
+
+#valor por pessoa
+valor_por_pessoa = total / desconto
+
+#Aviso para contas acima de R$ 200
+if total> 200:
+    print("Atenção: a conta ultrapassa R$200!")
+
+#exibiçaão dos resultados
+print("/n==== Conta do restaurante====")
+print(f"hamburguer: R${subtotal_hamburguer:.2f}")
+print(f"pizza: R${subtotal_pizza:.2f}")
+print(f"refrigerante: R${subtotal_refrigerante:.2f}")
+print(f"sobremesa: R${subtotal_sobremesa:.2f}")
+print(f"subtotal: R${subtotal:.2f}")
+print(f"taxa_servico: R${taxa_servico:.2f}")
+print(f"gorgeta: R${gorgeta:.2f}")
+print(f"desconto: R${desconto:.2f}")
+print(f"total: R${total:.2f}")
+print(f"valor por pessoa: R${valor_por_pessoa:.2f}")
